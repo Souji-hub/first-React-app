@@ -1,13 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App name = {'MERN'} address="text" />
+    <App name={'M"E"RN'} address="text" age={5} marks={[10, 20, 30, 40]}
+    location={{
+      latitude: 27.464,
+      longitude: 88.455
+    }}
+    active={false}
+    onSubmit = {() => console.log("Submitted")} />
   </React.StrictMode>
 );
 
