@@ -1,27 +1,36 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import First, {Second} from './components/firstcomponents';
+//import Second from './components/firstcomponents';
+import Register from './components/StudentRegister';
+import {STUDENTS} from './constants';
+import Counter from './components/Counter';
 
-function App(props) {
-  console.log(props,"App props");
+function App() {
+  // console.log(props,"App props");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {/* Edit <code>src/App.js</code> and save to reload. */}
-          {props.name} {props.active? 'Active':'Not'}
-        </p>
-        <a
-        
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={props.onSubmit}> Click Here</button>
-      </header>
+     <First 
+      title={'This is the first component'}
+      name= {'Soujanya Subedi'}
+      age ={22}
+      subjects={['Physics','EM','ECT','EDC','Microprocessor']}
+      isStudent={true}
+      location ={{
+          state: 3,
+          district: 'Bhaktapur',
+          city: 'Kausaltar'
+      }}
+      gender={'M'}
+      />
+    <Second />
+    <Register 
+        Batch={'074'}
+        Faculty={'BEX'}
+        College= {'KEC'}
+         Students={STUDENTS}
+         />
+         <Counter />
     </div>
   );
 }
