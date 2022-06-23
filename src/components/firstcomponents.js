@@ -27,7 +27,7 @@ const First = ({title,name,age,subjects,isStudent,location,gender}) => {
 
 const Second =() =>{
     return(
-        <div><h1>This is the Second Component</h1></div>
+        <div><h1>Drink Counter</h1></div>
     );
 }
 export  {Second}
