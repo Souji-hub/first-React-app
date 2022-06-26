@@ -5,7 +5,7 @@ import First, {Second} from './components/firstcomponents';
 import Register from './components/StudentRegister';
 import {STUDENTS} from './constants';
 import Counter from './components/Counter';
-
+import Forms from './components/formInput';
 function App() {
   // console.log(props,"App props");
   return (
@@ -31,6 +31,9 @@ function App() {
          Students={STUDENTS}
          />
          <Counter />
+
+         {/* <Forms /> */}
+        
     </div>
   );
 }
