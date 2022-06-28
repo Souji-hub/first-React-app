@@ -1,16 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-const Register = ({ Batch, Faculty, College, Students }) => {
+const Register = ({ Students }) => {
   const [entries, setEntries] = useState(Students);
   return (
     <div>
-      {" "}
-      Student Register
-      <h1>{College}</h1>
-      <p>
-        {Faculty}-{Batch}
-      </p>
       <ul>
         {entries.map((s) => (
           <li key={s.id}>
@@ -20,7 +14,7 @@ const Register = ({ Batch, Faculty, College, Students }) => {
           </li>
         ))}
       </ul>
-      <button
+      {/* <button
         onClick={() =>
           setEntries([
             ...entries,
@@ -35,7 +29,7 @@ const Register = ({ Batch, Faculty, College, Students }) => {
       >
         Add
       </button>
-      <button onClick={() => setEntries([])}>Clear</button>
+      <button onClick={() => setEntries([])}>Clear</button> */}
     </div>
   );
 };
