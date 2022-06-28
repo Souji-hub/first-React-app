@@ -2,13 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { FaTrash } from "react-icons/fa";
+import {AiFillEdit} from "react-icons/ai";
 
-const Forms = ({ Students }) => {
-  const [entries, setEntries] = useState(Students); //defining the states
+const Forms = ({ People }) => {
+  const [entries, setEntries] = useState(People); //defining the states
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [address, setAddress] = useState("");
-
+  
   const nameRef = useRef(null); //using reference for focus and clear
   const dobRef = useRef(null);
   const addressRef = useRef(null);
@@ -29,6 +30,7 @@ const Forms = ({ Students }) => {
     }
   };
   const handleAddEntry = () => {
+
     setEntries([
       ...entries,
       {
@@ -49,6 +51,11 @@ const Forms = ({ Students }) => {
     setEntries(entries.filter((a) => a.id !== id));
   };
 
+  const handleEditEntry =(entry) =>{
+      
+       
+
+  }
   return (
     <div>
       <h1> Registration Form</h1>
@@ -103,11 +110,17 @@ const Forms = ({ Students }) => {
               <span>{s.id}</span>
               {"."} <span>{s.name}</span> <span>{s.dob}</span>{" "}
               <span>{s.address}</span>{" "}
-              <FaTrash
+             
+              <AiFillEdit  color="blue"
+                size={15}
+                onClick={() => handleEditEntry(s)} />
+                {" "}
+                 <FaTrash
                 color="red"
                 size={15}
                 onClick={() => handleRemoveEntry(s.id)}
               />
+              
             </li>
           ))}
         </ul>

@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       {/* <Register Students={STUDENTS} /> */}
       {/* <Counter /> */}
-      <Forms Students={RECORDS} />
+      <Forms People={RECORDS} />
      
     </div>
   );
