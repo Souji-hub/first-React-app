@@ -9,7 +9,10 @@ const Forms = ({ People }) => {
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [address, setAddress] = useState("");
-  
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+
+
   const nameRef = useRef(null); //using reference for focus and clear
   const dobRef = useRef(null);
   const addressRef = useRef(null);
@@ -30,17 +33,25 @@ const Forms = ({ People }) => {
     }
   };
   const handleAddEntry = () => {
-
-    setEntries([
-      ...entries,
-      {
-        id: entries.length + 1,
-        name: name,
-        dob: dob,
-        address: address,
-      },
-    ]);
-
+    if (!editMode) {
+      setEntries([
+        ...entries,
+        {
+          id: entries.length + 1,
+          name: name,
+          dob: dob,
+          address: address,
+        },
+      ]);
+    } else {
+      setEntries(
+        entries.map((en) =>
+          en.id === selectedEntry.id ? { ...en, name, dob, address } : en
+        )
+      );
+      setEditMode(false);
+      setSelectedEntry(null);
+    }
     setName("");
     setDob("");
     setAddress("");
@@ -51,11 +62,23 @@ const Forms = ({ People }) => {
     setEntries(entries.filter((a) => a.id !== id));
   };
 
-  const handleEditEntry =(entry) =>{
-      
-       
+  const handleEditEntry = (entry) => {
+    setEditMode(true);
+    setSelectedEntry(entry);
+    setName(entry.name);
+    setDob(entry.dob);
+    setAddress(entry.address);
+  };
 
-  }
+  const handleCancelEdit = () => {
+    setEditMode(false);
+    setSelectedEntry(null);
+    setName("");
+    setDob("");
+    setAddress("");
+    nameRef.current.focus();
+  };
+
   return (
     <div>
       <h1> Registration Form</h1>
@@ -97,6 +120,7 @@ const Forms = ({ People }) => {
         </div>
         <div>
           <button onClick={handleAddEntry}>Submit</button>
+          {editMode ? <button onClick={handleCancelEdit}>Cancel</button> : null}
           <button onClick={() => setEntries([])}>Clear</button>
         </div>
       </div>
