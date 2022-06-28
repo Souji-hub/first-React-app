@@ -1,2 +1,2 @@
-task : form entry, submit, clear data show and delete and update samma garne 
+task : form data update
 
