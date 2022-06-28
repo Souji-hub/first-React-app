@@ -53,6 +53,7 @@ const Forms = ({ Students }) => {
     <div>
       <h1> Registration Form</h1>
       <div>
+        {" "}
         {/* division for form */}
         <div>
           <label for="Student_Name">Name: </label>
@@ -94,11 +95,13 @@ const Forms = ({ Students }) => {
       </div>
 
       <div>
+        {" "}
         {/* division for data */}
-        <ul>
+        <ul type="none">
           {entries.map((s) => (
             <li key={s.id}>
-              <span>{s.id}</span>{"."} <span>{s.name}</span> <span>{s.dob}</span>{" "}
+              <span>{s.id}</span>
+              {"."} <span>{s.name}</span> <span>{s.dob}</span>{" "}
               <span>{s.address}</span>{" "}
               <FaTrash
                 color="red"

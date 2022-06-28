@@ -2,8 +2,8 @@ export const RECORDS =[
 
     {
         id: 1,
-        name:'Example-Name' ,
-        dob:'Example-DOB' ,
-        address:'Example-Address' ,
+        name:<strong>Name</strong> ,
+        dob:<strong>DOB</strong> ,
+        address:<strong>Address</strong> ,
     }
 ]
